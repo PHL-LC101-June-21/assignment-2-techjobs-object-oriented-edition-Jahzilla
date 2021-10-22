@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import javax.swing.text.Position;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job {
@@ -13,6 +14,30 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+
+    public String toString(){
+
+        ArrayList<String> jobValues = new ArrayList<String>();
+        jobValues.add(Integer.toString(id));
+        jobValues.add(name);
+        jobValues.add(employer.getValue());
+        jobValues.add(location.getValue());
+        jobValues.add(positionType.getValue());
+        jobValues.add(coreCompetency.getValue());
+
+        for(String data : jobValues){
+            if(data == null || data == ""){
+                data = "Data not available";
+            }
+        }
+        return "\n" + "ID: " + jobValues.get(0)
+                + "\n" + "Name: " + jobValues.get(1)
+                + "\n" + "Employer: " + jobValues.get(2)
+                + "\n" + "Location: " + jobValues.get(3)
+                + "\n" + "Position Type: " + jobValues.get(4)
+                + "\n" + "Core Competency: " + jobValues.get(5)
+                + "\n";
+    }
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize

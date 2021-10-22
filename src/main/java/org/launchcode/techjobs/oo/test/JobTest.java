@@ -43,9 +43,39 @@ public class JobTest {
         Job aTestJob = new Job("TesterGuy", new Employer("TestCompany"), new Location("Testerville"), new PositionType("TesterPosition"),new CoreCompetency("TestingCompetency"));
         Job aTestJob2 = new Job("TesterGuy", new Employer("TestCompany"), new Location("Testerville"), new PositionType("TesterPosition"),new CoreCompetency("TestingCompetency"));
         assertFalse(aTestJob.equals(aTestJob2));
+
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job aTestJob = new Job("TesterGuy", new Employer("TestCompany"), new Location("Testerville"), new PositionType("TesterPosition"),new CoreCompetency("TestingCompetency"));
+        assertEquals(aTestJob.toString().charAt(0),'\n');
+        assertEquals(aTestJob.toString().charAt(aTestJob.toString().length() - 1),'\n');
+    }
 
+    @Test public void testToStringContainsCorrectLabelsAndData(){
+        Job aTestJob = new Job("TesterGuy", new Employer("TestCompany"), new Location("Testerville"), new PositionType("TesterPosition"),new CoreCompetency("TestingCompetency"));
+        assertEquals(aTestJob.toString(), "\n" + "ID: " + aTestJob.getId()
+                + "\n" + "Name: " + aTestJob.getName()
+                + "\n" + "Employer: " + aTestJob.getEmployer()
+                + "\n" + "Location: " + aTestJob.getLocation()
+                + "\n" + "Position Type: " + aTestJob.getPositionType()
+                + "\n" + "Core Competency: " + aTestJob.getCoreCompetency()
+                + "\n");
+
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job aTestJob = new Job("TesterGuy", new Employer(""), new Location("Testerville"), new PositionType("TesterPosition"),new CoreCompetency("TestingCompetency"));
+        assertEquals(aTestJob.toString(), "\n" + "ID: " + aTestJob.getId()
+                + "\n" + "Name: " + aTestJob.getName()
+                + "\n" + "Employer: "
+                + "\n" + "Location: " + aTestJob.getLocation()
+                + "\n" + "Position Type: " + aTestJob.getPositionType()
+                + "\n" + "Core Competency: " + aTestJob.getCoreCompetency()
+                + "\n");
+    }
 
 
 
