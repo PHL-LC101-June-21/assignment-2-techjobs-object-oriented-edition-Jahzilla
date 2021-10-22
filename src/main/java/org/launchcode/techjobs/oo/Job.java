@@ -25,9 +25,9 @@ public class Job {
         jobValues.add(positionType.getValue());
         jobValues.add(coreCompetency.getValue());
 
-        for(String data : jobValues){
-            if(data == null || data == ""){
-                data = "Data not available";
+        for(int i = 0; i < jobValues.size(); i++){
+            if(jobValues.get(i) == null || jobValues.get(i) == ""){
+                jobValues.set(i, "Data not available");
             }
         }
         return "\n" + "ID: " + jobValues.get(0)

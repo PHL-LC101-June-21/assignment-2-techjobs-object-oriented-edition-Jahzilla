@@ -70,7 +70,7 @@ public class JobTest {
         Job aTestJob = new Job("TesterGuy", new Employer(""), new Location("Testerville"), new PositionType("TesterPosition"),new CoreCompetency("TestingCompetency"));
         assertEquals(aTestJob.toString(), "\n" + "ID: " + aTestJob.getId()
                 + "\n" + "Name: " + aTestJob.getName()
-                + "\n" + "Employer: "
+                + "\n" + "Employer: " + aTestJob.getEmployer()
                 + "\n" + "Location: " + aTestJob.getLocation()
                 + "\n" + "Position Type: " + aTestJob.getPositionType()
                 + "\n" + "Core Competency: " + aTestJob.getCoreCompetency()
